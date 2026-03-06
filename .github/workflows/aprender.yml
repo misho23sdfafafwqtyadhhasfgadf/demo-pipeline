@@ -12,6 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Show Node & npm versions
+        run: |
+          node -v
+          npm -v
+
+      - name: List project files
+        run: ls -R
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,5 +28,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
+      - name: Run Tests (direct)
         run: npx mocha test/test.js
